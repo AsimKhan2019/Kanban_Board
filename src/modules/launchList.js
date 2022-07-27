@@ -17,11 +17,11 @@ const txtcomment = document.getElementById('txt-comment');
 const hiddenLaunchId = document.getElementById('launch-id');
 
 export default class Launch {
-  constructor(id, name, lspName, missionType, pad, location, image) {
+  constructor(id, name, lsp_name, mission_type, pad, location, image) {
     this.id = id;
     this.name = name;
-    this.lspName = lspName;
-    this.missionType = missionType;
+    this.lsp_name = lsp_name;
+    this.mission_type = mission_type;
     this.pad = pad;
     this.location = location;
     this.image = image;
@@ -57,8 +57,8 @@ export default class Launch {
           btnReserve.addEventListener('click', () => { Launch.showModal(launch.id); });
 
           launchList.appendChild(launchCard);
-          const launchInfo = new Launch(launch.id, launch.name, launch.lspName,
-            launch.missionType, launch.pad,
+          const launchInfo = new Launch(launch.id, launch.name, launch.lsp_name,
+            launch.mission_type, launch.pad,
             launch.location, launch.image);
           Launch.launchArray.push(launchInfo);
         });
@@ -79,8 +79,8 @@ export default class Launch {
     const pad = launchModal.querySelector('.pad');
     const location = launchModal.querySelector('.location');
 
-    lsp.innerText = launchdata.lspName;
-    mission.innerText = launchdata.missionType;
+    lsp.innerText = launchdata.lsp_name;
+    mission.innerText = launchdata.mission_type;
     pad.innerText = launchdata.pad;
     location.innerText = launchdata.location;
     hiddenLaunchId.value = launchdata.id;
