@@ -127,6 +127,22 @@ export default class Launch {
     txtcomment.value = '';
   }
 
+  static async saveComment() {
+    await fetch(likesAPIURL, {
+
+      method: 'POST',
+      body: JSON.stringify({
+        item_id: hiddenLaunchId.value,
+      }),
+      headers: {
+        'Content-type': 'application/json; charset=UTF-8',
+      },
+    });
+
+    txtname.value = '';
+    txtcomment.value = '';
+  }
+
   static async getComments() {
     const getDetails = document.querySelector('.commentList');
     getDetails.innerHTML = ' ';
