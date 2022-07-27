@@ -1,16 +1,3 @@
-body {
-  font-family: "Comic Sans MS", cursive, sans-serif;
-  font-size: 18px;
-  letter-spacing: 2px;
-  word-spacing: 2px;
-  color: #000;
-  font-weight: normal;
-  text-decoration: none;
-  font-style: normal;
-  font-variant: normal;
-  text-transform: none;
-}
-
 * {
   margin: 0;
   padding: 0;
@@ -35,7 +22,6 @@ body {
 }
 
 .launch-card:hover {
-  /* border: 2px solid #A7AEFF; */
   box-shadow: 0 0 20px 20px #ddd;
 }
 
@@ -73,16 +59,14 @@ body {
 }
 
 #launch-modal .launch-card {
-  /* flex-direction:column; */
   width: 90%;
   margin: auto;
   margin-top: 30px;
   border-radius: 20px;
-  background-color: white;
+  background-color: #fff;
 }
 
 #launch-modal .launch-card:hover {
-  /* border: 2px solid #A7AEFF; */
   box-shadow: none;
 }
 
@@ -99,7 +83,7 @@ body {
 .launch-img .content {
   background-color: rgba(0, 0, 0, 0.5);
   padding: 10px;
-  color: white;
+  color: #fff;
 }
 
 #comment {

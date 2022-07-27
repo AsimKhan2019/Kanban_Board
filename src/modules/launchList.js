@@ -128,6 +128,9 @@ export default class Launch {
   }
 
   static async getComments() {
+    const getDetails = document.querySelector('.commentList');
+        getDetails.innerHTML = ' ';
+        commentsCount.innerText = '0';
     await fetch(`${saveAPIURL}?item_id=${hiddenLaunchId.value}`)
       .then((response) => {
         if (!response.ok) {
@@ -136,14 +139,15 @@ export default class Launch {
         return response.json();
       })
       .then((json) => {
-        const getDetails = document.querySelector('.commentList');
-        getDetails.innerHTML = ' ';
-        commentsCount.innerText = json.length;
+        
+       
+          commentsCount.innerText = json.length; // if json.length > 0 then do all this else no 
         json.forEach((comment) => {
           const li = document.createElement('li');
           li.innerText = `${comment.creation_date} ${comment.username} ${comment.comment}`;
           getDetails.append(li);
         });
+      
       });
   }
 
