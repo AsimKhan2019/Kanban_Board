@@ -1,13 +1,123 @@
-@font-face {
-  font-family: 'MyFont';
-  src: url('./my-font.woff2') format('woff2'),
-    url('./my-font.woff') format('woff');
-  font-weight: 600;
+body {
+  font-family: "Comic Sans MS", cursive, sans-serif;
+  font-size: 18px;
+  letter-spacing: 2px;
+  word-spacing: 2px;
+  color: #000;
+  font-weight: normal;
+  text-decoration: none;
   font-style: normal;
+  font-variant: normal;
+  text-transform: none;
 }
 
-.hello {
-  color: red;
-  font-family: 'MyFont';
-  background: url('./icon.png');
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Poppins", sans-serif;
+}
+
+.launch-list {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 30px;
+}
+
+.launch-card {
+  display: flex;
+  flex-direction: column;
+  width: 250px;
+  overflow: hidden;
+  border: 1px solid #dfe1e6;
+  border-radius: 20px 0;
+  padding-bottom: 15px;
+}
+
+.launch-card:hover {
+  /* border: 2px solid #A7AEFF; */
+  box-shadow: 0 0 20px 20px #ddd;
+}
+
+.imgHeader {
+  background-image: url('https://spacelaunchnow-prod-east.nyc3.digitaloceanspaces.com/media/launcher_images/falcon_9_block__image_20210506060831.jpg');
+  height: 200px;
+  background-size: cover;
+}
+
+.title {
+  padding: 10px;
+  height: 100px;
+}
+
+.actions {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  padding: 10px;
+}
+
+.template {
+  display: none;
+}
+
+#launch-modal {
+  display: none;
+  position: fixed;
+  background-color: rgba(0, 0, 0, 0.5);
+  backdrop-filter: blur(1px);
+  width: 100%;
+  height: 100%;
+  z-index: 7;
+  overflow: auto;
+}
+
+#launch-modal .launch-card {
+  /* flex-direction:column; */
+  width: 90%;
+  margin: auto;
+  margin-top: 30px;
+  border-radius: 20px;
+  background-color: white;
+}
+
+#launch-modal .launch-card:hover {
+  /* border: 2px solid #A7AEFF; */
+  box-shadow: none;
+}
+
+.launch-img {
+  background-image: url('https://spacelaunchnow-prod-east.nyc3.digitaloceanspaces.com/media/launcher_images/falcon_9_block__image_20210506060831.jpg');
+  height: 80vh;
+  background-size: cover;
+  background-repeat: no-repeat;
+  display: flex;
+  flex-direction: column;
+  justify-content: end;
+}
+
+.launch-img .content {
+  background-color: rgba(0, 0, 0, 0.5);
+  padding: 10px;
+  color: white;
+}
+
+#comment {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  align-self: stretch;
+}
+
+#comment ul {
+  display: block;
+  list-style: none;
+  align-self: center;
+}
+
+.entry form {
+  display: flex;
+  flex-direction: column;
+  flex-wrap: nowrap;
 }

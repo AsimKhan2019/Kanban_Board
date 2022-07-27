@@ -1,9 +1,92 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <meta charset="utf-8">
-    <title>Development</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1"><script defer src="/Kanban_Board/runtime.bundle.js"></script><script defer src="/Kanban_Board/index.bundle.js"></script><script defer src="/Kanban_Board/print.bundle.js"></script></head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Space Launches</title>
+  <script defer src="/Kanban_Board/runtime.bundle.js"></script><script defer src="/Kanban_Board/index.bundle.js"></script></head>
   <body>
+    <div id="launch-modal">
+      <div class="launch-card">
+          
+          <div class="launch-img">
+            <div class="content">
+              <h1>Falcon 9 Block 5 | KPLO (Korean Pathfinder Lunar Orbiter)</h1>
+              <div class="details">
+                <ul>
+                <li>
+              <span>Launch Provider:</span>
+              <span class="lsp"></span>
+            </li>
+            <li>
+              <span>Mission Type:</span>
+              <span class="mission"></span>
+            </li>
+            <li>
+              <span>Pad:</span>
+              <span class="pad"></span>
+            </li>
+            <li>
+              <span>Location:</span>
+              <span class="location"></span>
+            </li>
+                </ul>
+              </div>
+            </div>
+            <button class="close">x</button>
+            
+            
+          </div>
+          <div id="comment">
+            <h2>Comments (2)</h2>
+                <ul class="commentList">
+                  <li>
+                    <span>03//11/2021</span>
+                    <span>Alex:</span>
+                    <span>I love it</span>
+                  </li>
+                  <li>
+                    <span>03//12/2021</span>
+                    <span>Mia:</span>
+                    <span>We have a go no go for launch</span>
+                  </li>
+                </ul>
+                <div class="entry">
+                  <h2>Add a Comment</h2>
+                  <form>
+                    <input id="txt-visitor" type="text" placeholder="Your name" />
+                    <input id="txt-comment" type="text" placeholder="Your comments" />
+                    <input id="launch-id" type="hidden" />
+                    <input id="btn-save-comment" type="button" value="Comment" />
+                  </form>
+                </div>
+          </div>
+      </div>
+    </div>
+    <header>
+
+    </header>
+    
+    <section class="launch-list">
+      
+    </section>
+    <div class="launch-card template" >
+      <div class="imgHeader">
+        
+      </div>
+      
+      <div class="title">
+        <h3>Falcon 9 Block 5 | KPLO (Korean Pathfinder Lunar Orbiter)</h3>
+        <div class="likes">
+          <img />
+          <span></span>
+        </div>
+      </div>
+      <div class="actions">
+        <button class="comment">Comments</button>
+        <button class="reserve">Reservation</button>
+      </div>
+    </div>
   </body>
 </html>
