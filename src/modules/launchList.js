@@ -1,5 +1,6 @@
 const launchAPIURL = 'https://ll.thespacedevs.com/2.2.0/launch/upcoming/?mode=list&status=8&ordering=window_end';
 const saveAPIURL = 'https://us-central1-involvement-api.cloudfunctions.net/capstoneApi/apps/1ry5uwpFLkvr8WR9TJVB/comments';
+const likesAPIURL = 'https://us-central1-involvement-api.cloudfunctions.net/capstoneApi/apps/1ry5uwpFLkvr8WR9TJVB/likes';
 
 const launchList = document.getElementsByClassName('launch-list')[0];
 const launchCardTemplate = document.getElementsByClassName('template')[0];
@@ -15,8 +16,11 @@ btnClose.addEventListener('click', () => Launch.closeModal());
 const txtname = document.getElementById('txt-visitor');
 const txtcomment = document.getElementById('txt-comment');
 const hiddenLaunchId = document.getElementById('launch-id');
+const commentsCount = document.querySelector('.comments-count');
 
 export default class Launch {
+  likes;
+
   constructor(id, name, lsp_name, mission_type, pad, location, image) {
     this.id = id;
     this.name = name;
@@ -29,9 +33,12 @@ export default class Launch {
 
   static launchArray = [];
 
+  static likesArray = [];
+
   static getLaunch = async () => {
     launchList.innerHTML = '';
     Launch.launchArray = [];
+    // await Launch.getAllLikes();
     await fetch(launchAPIURL)
       .then((response) => {
         if (!response.ok) {
@@ -56,10 +63,14 @@ export default class Launch {
           const btnReserve = launchCard.querySelector('.reserve');
           btnReserve.addEventListener('click', () => { Launch.showModal(launch.id); });
 
+          const likesCount = launchCard.querySelector('.likes span');
+
           launchList.appendChild(launchCard);
           const launchInfo = new Launch(launch.id, launch.name, launch.lsp_name,
             launch.mission_type, launch.pad,
             launch.location, launch.image);
+          launchInfo.likes = Launch.getLikes(launchInfo.id);
+          likesCount.innerText = launchInfo.likes;
           Launch.launchArray.push(launchInfo);
         });
       });
@@ -127,7 +138,7 @@ export default class Launch {
       .then((json) => {
         const getDetails = document.querySelector('.commentList');
         getDetails.innerHTML = ' ';
-
+        commentsCount.innerText = json.length;
         json.forEach((comment) => {
           const li = document.createElement('li');
           li.innerText = `${comment.creation_date} ${comment.username} ${comment.comment}`;
@@ -139,4 +150,20 @@ export default class Launch {
   /* static saveComment = async(launchId) => {
 
   } */
+
+  static async getAllLikes() {
+    Launch.likesArray = await fetch(likesAPIURL)
+      .then((response) => {
+        if (!response.ok) {
+          throw new Error(`HTTP error! Status: ${response.status}`);
+        }
+        return response.json();
+      });
+  }
+
+  static getLikes(launchId) {
+    const r = Launch.likesArray.find((l) => l.item_id === launchId);
+    if (r != null) { return r.likes; }
+    return 0;
+  }
 }
