@@ -11,4 +11,6 @@ export default class LaunchService {
   }
 
   static getLaunch = (launchId) => LaunchService.LaunchList.find((l) => l.id === launchId)
+
+  static getLauchCount = (launches) => launches.length
 }

@@ -2,6 +2,7 @@ import InvolvementUI from './InvolvementUI.js';
 import LaunchService from './LaunchService.js';
 
 const launchCardTemplate = document.querySelector('.launch-card.template');
+const launchCount = document.querySelector('.launch-count');
 const launchList = document.querySelector('.launch-list');
 const launchModal = document.getElementById('launch-modal');
 const img = launchModal.querySelector('.launch-img');
@@ -16,6 +17,7 @@ btnClose.addEventListener('click', () => LaunchUI.closeModal());
 export default class LaunchUI {
   static renderLaunches = () => {
     LaunchService.getLaunches().then((launches) => {
+      launchCount.innerText = LaunchService.getLauchCount(launches);
       launches.forEach((launch) => {
         const launchCard = launchCardTemplate.cloneNode(true);
         launchCard.className = 'launch-card';

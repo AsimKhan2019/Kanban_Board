@@ -5,6 +5,8 @@ let likesArray = [];
 export default class InvolvementService {
   static getComments = async (launchId) => InvolvementAPI.fetchComments(launchId)
 
+  static getCommentsCount = (comments) => comments.length
+
   static postComment = async (launchId, newComment) => {
     await InvolvementAPI.postComment(launchId, newComment);
   }
