@@ -2,28 +2,20 @@
  * @jest-environment jsdom
  */
 
+import InvolvementUI from '../modules/InvolvementUI.js';
+
  describe('Testing items counter', () => {
   test('Add 1 item to list', () => {
-    document.body.innerHTML = '<div>'
-    + '  <ul id="list"></li>'
-    + '</div>';
-
+    
     const data = {
-      index: 0,
-      description: 'This is just a sample',
-      completed: false,
+      
     };
-    Operations.addToList(data);
-    const tasks = document.querySelectorAll('#list li');
+    
     expect(tasks).toHaveLength(1);
   });
 
   test('Add 2 items to list', () => {
-    localStorage.clear();
-    document.body.innerHTML = '<div>'
-    + '  <ul id="list"></li>'
-    + '</div>';
-
+    
     const data = {
       index: 0,
       description: 'This is just a sample',
@@ -34,9 +26,7 @@
       description: 'This is just another sample',
       completed: false,
     };
-    Operations.addToList(data);
-    Operations.addToList(data1);
-    const tasks = document.querySelectorAll('#list li');
+    
     expect(tasks).toHaveLength(2);
   });
 });
