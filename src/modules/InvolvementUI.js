@@ -10,7 +10,7 @@ const btnSaveComment = document.getElementById('btn-save-comment');
 btnSaveComment.addEventListener('click', async () => { await InvolvementUI.postComment(); });
 
 export default class InvolvementUI {
-  static renderComments = async(launchId) => {
+  static renderComments = async (launchId) => {
     hiddenLaunchId.value = launchId;
     getDetails.innerHTML = ' ';
     await InvolvementService.getComments(launchId)
@@ -31,8 +31,8 @@ export default class InvolvementUI {
     hiddenLaunchId.value = '';
   }
 
-  static postComment = async() => {
-    let launchId =  hiddenLaunchId.value;
+  static postComment = async () => {
+    const launchId = hiddenLaunchId.value;
     await InvolvementService.postComment(launchId,
       new Comment('', txtname.value, txtcomment.value));
     InvolvementUI.clearComments();

@@ -34,8 +34,8 @@ export default class LaunchUI {
 
         const likesCount = launchCard.querySelector('.likes span');
         InvolvementUI.renderLikes(likesCount, launch.id);
-        let likeBtn = launchCard.querySelector('.likes i');
-        likeBtn.addEventListener('click', () => { return InvolvementUI.postLike(likesCount, launch.id);});
+        const likeBtn = launchCard.querySelector('.likes i');
+        likeBtn.addEventListener('click', () => InvolvementUI.postLike(likesCount, launch.id));
 
         launchList.appendChild(launchCard);
       });
