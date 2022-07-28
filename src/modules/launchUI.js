@@ -14,7 +14,7 @@ const btnClose = document.querySelector('.close');
 btnClose.addEventListener('click', () => LaunchUI.closeModal());
 
 export default class LaunchUI {
-  static renderLaunches() {
+  static renderLaunches = () => {
     LaunchService.getLaunches().then((launches) => {
       launches.forEach((launch) => {
         const launchCard = launchCardTemplate.cloneNode(true);
@@ -34,13 +34,15 @@ export default class LaunchUI {
 
         const likesCount = launchCard.querySelector('.likes span');
         InvolvementUI.renderLikes(likesCount, launch.id);
+        const likeBtn = launchCard.querySelector('.likes i');
+        likeBtn.addEventListener('click', () => InvolvementUI.postLike(likesCount, launch.id));
 
         launchList.appendChild(launchCard);
       });
     });
   }
 
-  static showModal(launchId) {
+  static showModal = (launchId) => {
     const launchdata = LaunchService.getLaunch(launchId);
 
     img.style.backgroundImage = `url('${launchdata.image}')`;
@@ -55,7 +57,7 @@ export default class LaunchUI {
     launchModal.style.display = 'block';
   }
 
-  static closeModal() {
+  static closeModal = () => {
     InvolvementUI.clearComments();
     launchModal.style.display = 'none';
   }
