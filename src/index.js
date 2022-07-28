@@ -1,7 +1,6 @@
 import './style.css';
-import launchList from './modules/launchList.js';
+import LaunchUI from './modules/launchUI.js';
 
 window.addEventListener('load', async () => {
-  await launchList.getAllLikes();
-  await launchList.getLaunch();
+  LaunchUI.renderLaunches();
 });
