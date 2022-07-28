@@ -5,7 +5,7 @@ body {
   word-spacing: 2px;
   margin: 0;
   background-color: #1e1e1e;
-  color: #ffffff;
+  color: #fff;
   font-weight: normal;
   text-decoration: none;
   font-style: normal;
@@ -20,17 +20,26 @@ body {
   font-family: "Poppins", sans-serif;
 }
 
+a {
+  text-decoration: none;
+}
+
 .logo {
   display: flex;
   align-items: center;
   margin-left: 100px;
 }
 
-.logo>p {
+.logo > p {
   font-size: 25px;
   background: -webkit-linear-gradient(blue, yellow);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
+}
+
+.privacy-policy > a {
+  color: #009688;
+  text-decoration: none;
 }
 
 header {
@@ -51,19 +60,14 @@ header {
   font-size: 19px;
 }
 
-a {
-  text-decoration: none;
-}
-
-.header-links>a {
+.header-links > a {
   color: #ffffff80;
   transition: 0.5s ease-in-out;
 }
 
-.header-links>a:hover {
+.header-links > a:hover {
   color: #009688;
 }
-
 
 .fab {
   color: white;
@@ -78,10 +82,9 @@ a {
 
 .launch-list {
   display: grid;
-  grid-template-columns:  300px 300px 300px;
+  grid-template-columns: 300px 300px 300px;
   grid-gap: 30px;
   justify-content: center;
- 
 }
 
 .launch-card {
@@ -112,7 +115,8 @@ a {
   padding: 10px;
 }
 
-.comment,.reserve {
+.comment,
+.reserve {
   color: white;
   background-color: #009688;
   border-radius: 5px;
@@ -154,11 +158,11 @@ a {
   background-image: url('https://spacelaunchnow-prod-east.nyc3.digitaloceanspaces.com/media/launcher_images/falcon_9_block__image_20210506060831.jpg');
   height: 50vh;
   background-size: cover;
-  background-repeat: no-repeat; 
+  background-repeat: no-repeat;
 }
 
 .close {
-position: fixed;
+  position: fixed;
   background-color: #1e1e1e;
   color: white;
   border: none;
@@ -168,7 +172,6 @@ position: fixed;
   font-size: 20px;
   font-weight: bold;
 }
-
 
 .launch-img .content {
   /* background-color: rgba(0, 0, 0, 0.5); */
@@ -187,6 +190,10 @@ position: fixed;
   align-items: center;
   padding-top: 100px;
   margin-top: 100px;
+}
+
+ul {
+  list-style: none;
 }
 
 #comment ul {
@@ -217,10 +224,6 @@ position: fixed;
   padding: 10px;
 }
 
-ul {
-  list-style: none;
-}
-
 #btn-save-comment {
   color: white;
   background-color: #009688;
@@ -249,11 +252,6 @@ footer {
   margin-right: 100px;
 }
 
-createdby {
+.createdby {
   color: #ffffff80;
-}
-
-.privacy-policy>a {
-  color: #009688;
-  text-decoration: none;
 }
