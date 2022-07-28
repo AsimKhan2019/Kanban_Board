@@ -1,16 +1,7 @@
 body {
-  font-family: "Comic Sans MS", cursive, sans-serif;
-  font-size: 18px;
-  letter-spacing: 2px;
-  word-spacing: 2px;
-  margin: 0;
-  background-color: #1e1e1e;
-  color: #fff;
-  font-weight: normal;
-  text-decoration: none;
-  font-style: normal;
-  font-variant: normal;
-  text-transform: none;
+  background-color: #fff;
+  color: #1e1e1e;
+  font-size: 14px;
 }
 
 * {
@@ -81,8 +72,10 @@ header {
 }
 
 .launch-list {
-  display: grid;
-  grid-template-columns: 300px 300px 300px;
+  /* display: grid;
+  grid-template-columns: 300px 300px 300px; */
+  display: flex;
+  flex-wrap: wrap;
   grid-gap: 30px;
   justify-content: center;
 }
@@ -92,9 +85,14 @@ header {
   flex-direction: column;
   width: 300px;
   overflow: hidden;
-  border: 1px solid #dfe1e6;
+  border: 4px solid #dfe1e6;
   padding-bottom: 15px;
+  border-radius: 20px 0;
   transition: 0.5s ease-in-out;
+}
+
+.launch-card:hover {
+  box-shadow: 0 0 20px 20px #ddd;
 }
 
 .imgHeader {
@@ -142,12 +140,14 @@ header {
 }
 
 #launch-modal .launch-card {
-  width: 50%;
-  height: 95%;
+  width: 67%;
+  height: 120%;
   margin: 0 auto;
-  color: white;
+  color: #fff;
   background-color: #1e1e1e;
-  overflow-y: scroll;
+  border-radius: 20px;
+
+  /* overflow-y: scroll; */
 }
 
 #launch-modal .launch-card:hover {
@@ -162,15 +162,20 @@ header {
 }
 
 .close {
-  position: fixed;
-  background-color: #1e1e1e;
+  position: absolute;
+
+  /* background-color: #1e1e1e;
   color: white;
   border: none;
   padding: 10px;
   margin-left: 700px;
-  margin-top: 10px;
+  margin-top: 10px; */
   font-size: 20px;
-  font-weight: bold;
+
+  /* font-weight: bold; */
+  width: 4%;
+  cursor: pointer;
+  margin-left: 62%;
 }
 
 .launch-img .content {
@@ -188,12 +193,13 @@ header {
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  padding-top: 100px;
-  margin-top: 100px;
+  padding-top: 64px;
+  margin-top: 89px;
 }
 
-ul {
+.details ul {
   list-style: none;
+  columns: 2;
 }
 
 #comment ul {
@@ -216,7 +222,7 @@ ul {
 
 #txt-visitor {
   padding: 10px;
-  width: 150px;
+  width: 186px;
 }
 
 #txt-comment {
@@ -240,18 +246,26 @@ footer {
   padding: 20px 0;
   margin-top: 50px;
   box-shadow: 5px 2px 8px 2px #424242;
+  background-color: #1e1e1e;
+  color: #fff;
 }
 
 .privacy-policy {
-  color: #009688;
+  color: #fff;
   margin-left: 100px;
 }
 
 .copyright {
-  color: #ffffff80;
+  color: #fff;
   margin-right: 100px;
 }
 
 .createdby {
-  color: #ffffff80;
+  color: #fff;
+}
+
+.likes {
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-end;
 }

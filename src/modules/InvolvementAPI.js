@@ -5,7 +5,7 @@ export default class InvolvementAPI {
 
   static likesURL = 'https://us-central1-involvement-api.cloudfunctions.net/capstoneApi/apps/1ry5uwpFLkvr8WR9TJVB/likes';
 
-  static async fetchComments(launchId) {
+  static fetchComments = async (launchId) => {
     const comments = [];
     await fetch(`${InvolvementAPI.commentsURL}?item_id=${launchId}`)
       .then((response) => {
@@ -22,7 +22,7 @@ export default class InvolvementAPI {
     return comments;
   }
 
-  static async postComment(launchId, newcomment) {
+  static postComment = async (launchId, newcomment) => {
     await fetch(InvolvementAPI.commentsURL, {
 
       method: 'POST',
@@ -37,13 +37,24 @@ export default class InvolvementAPI {
     });
   }
 
-  static async fetchAllLikes() {
-    return fetch(InvolvementAPI.likesURL)
-      .then((response) => {
-        if (!response.ok) {
-          throw new Error(`HTTP error! Status: ${response.status}`);
-        }
-        return response.json();
-      });
+  static fetchAllLikes = async () => fetch(InvolvementAPI.likesURL)
+    .then((response) => {
+      if (!response.ok) {
+        throw new Error(`HTTP error! Status: ${response.status}`);
+      }
+      return response.json();
+    })
+
+  static postLike = async (launchId) => {
+    await fetch(InvolvementAPI.likesURL, {
+
+      method: 'POST',
+      body: JSON.stringify({
+        item_id: launchId,
+      }),
+      headers: {
+        'Content-type': 'application/json; charset=UTF-8',
+      },
+    });
   }
 }
