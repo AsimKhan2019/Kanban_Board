@@ -10,7 +10,7 @@ const btnSaveComment = document.getElementById('btn-save-comment');
 btnSaveComment.addEventListener('click', async () => { await InvolvementUI.postComment(); });
 
 export default class InvolvementUI {
-  static async renderComments(launchId) {
+  static renderComments = async(launchId) => {
     hiddenLaunchId.value = launchId;
     getDetails.innerHTML = ' ';
     await InvolvementService.getComments(launchId)
@@ -24,21 +24,30 @@ export default class InvolvementUI {
       });
   }
 
-  static clearComments() {
+  static clearComments = () => {
     commentsCount.innerText = 0;
     txtname.value = '';
     txtcomment.value = '';
     hiddenLaunchId.value = '';
   }
 
-  static async postComment() {
-    await InvolvementService.postComment(hiddenLaunchId.value,
+  static postComment = async() => {
+    let launchId =  hiddenLaunchId.value;
+    await InvolvementService.postComment(launchId,
       new Comment('', txtname.value, txtcomment.value));
+    InvolvementUI.clearComments();
+    InvolvementUI.renderComments(launchId);
   }
 
-  static renderLikes(element, launchId) {
+  static renderLikes = (element, launchId) => {
     InvolvementService.getLikes(launchId).then((likes) => {
       element.innerText = likes;
     });
   }
+
+  static postLike = (element, launchId) => {
+    InvolvementService.postLike(launchId).then(() => {
+      InvolvementUI.renderLikes(element, launchId);
+    });
+  };
 }
