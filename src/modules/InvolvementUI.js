@@ -47,7 +47,7 @@ export default class InvolvementUI {
 
   static postLike = (element, launchId) => {
     InvolvementService.postLike(launchId).then(() => {
-      InvolvementUI.renderLikes(element, launchId);
+      element.innerText = parseInt(element.innerText,10)+1;
     });
   };
 }
