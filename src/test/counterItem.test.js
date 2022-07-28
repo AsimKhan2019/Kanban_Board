@@ -1,6 +1,7 @@
 /**
  * @jest-environment jsdom
  */
+ 
  import LaunchService from '../modules/LaunchService.js';
 
  describe('Testing items counter', () => {
