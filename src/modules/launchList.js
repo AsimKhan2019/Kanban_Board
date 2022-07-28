@@ -68,9 +68,8 @@ export default class Launch {
   static showModal(launchId) {
     const launchdata = Launch.launchArray.find((l) => l.id === launchId);
     const img = launchModal.querySelector('.launch-img');
-
     img.style.backgroundImage = `url('${launchdata.image}')`;
-
+    
     const h1 = launchModal.querySelector('h1');
     h1.innerText = launchdata.name;
 
@@ -104,7 +103,7 @@ export default class Launch {
       method: 'POST',
       body: JSON.stringify({
         item_id: hiddenLaunchId.value,
-        username: txtname.value,
+        username: `${txtname.value}:`,
         comment: txtcomment.value,
       }),
       headers: {
