@@ -17,11 +17,11 @@ btnClose.addEventListener('click', () => LaunchUI.closeModal());
 export default class LaunchUI {
   static renderLaunches = () => {
     LaunchService.getLaunches().then((launches) => {
-      launchCount.innerText = launches.length;
+      launchCount.innerText = LaunchService.getLauchCount(launches);
       launches.forEach((launch) => {
         const launchCard = launchCardTemplate.cloneNode(true);
         launchCard.className = 'launch-card';
-        
+
         const imgHeader = launchCard.getElementsByClassName('imgHeader')[0];
         imgHeader.style.backgroundImage = `url('${launch.image}')`;
 

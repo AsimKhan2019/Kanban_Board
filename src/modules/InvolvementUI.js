@@ -15,7 +15,7 @@ export default class InvolvementUI {
     getDetails.innerHTML = ' ';
     await InvolvementService.getComments(launchId)
       .then((comments) => {
-        commentsCount.innerText = comments.length;
+        commentsCount.innerText = InvolvementService.getCommentsCount(comments);
         comments.forEach((comment) => {
           const li = document.createElement('li');
           li.innerText = `${comment.creation_date} ${comment.username} ${comment.comment}`;
@@ -47,7 +47,7 @@ export default class InvolvementUI {
 
   static postLike = (element, launchId) => {
     InvolvementService.postLike(launchId).then(() => {
-      element.innerText = parseInt(element.innerText,10)+1;
+      element.innerText = parseInt(element.innerText, 10) + 1;
     });
   };
 }
