@@ -3,7 +3,7 @@
 # Kanban Board
 
 > This project is all about using Kanban Board and applying the right GitFlow approach to develop the project. The 
-project is all about using APIs and retrieving and postinjg comments and data using several different APIs and integrations. 
+project is all about using APIs and retrieving and postinjg comments and data using several different APIs and integrations. Creating new branches from different commits using different heads
 
 
 ## Built With
@@ -14,6 +14,7 @@ project is all about using APIs and retrieving and postinjg comments and data us
 - Kanban Board, Involvement API
 
 ## Live Demo (if available)
+[Demo Link Here](https://asimkhan2019.github.io/Kanban_Board/)
 
 ## Getting Started
 
