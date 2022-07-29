@@ -33,8 +33,11 @@ export default class InvolvementUI {
 
   static postComment = async () => {
     const launchId = hiddenLaunchId.value;
-    await InvolvementService.postComment(launchId,
-      new Comment('', txtname.value, txtcomment.value));
+    if (txtname.value !== '' && txtcomment.value !== ''){
+      await InvolvementService.postComment(launchId,
+        new Comment('', txtname.value, txtcomment.value));
+    }
+    
     InvolvementUI.clearComments();
     InvolvementUI.renderComments(launchId);
   }
