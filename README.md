@@ -14,7 +14,7 @@ project is all about using APIs and retrieving and postinjg comments and data us
 - Kanban Board, Involvement API
 
 ## Live Demo (if available)
-![Demo Link Here](https://asimkhan2019.github.io/Kanban_Board/)
+[Demo Link Here](https://asimkhan2019.github.io/Kanban_Board/)
 
 ## Getting Started
 
